@@ -8,7 +8,7 @@ This is a sample usage of this action that you can adapt / modify and copy to yo
 
 ```yaml
 - name: Create bucket in S3
-  uses: aitorres/aws-s3-create-bucket@v1.1.0
+  uses: aitorres/aws-s3-create-bucket@v1.1.1
   with:
     bucket-name: 'my-unique-name-for-my-bucket'
     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
