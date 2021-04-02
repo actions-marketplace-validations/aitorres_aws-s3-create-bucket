@@ -1,0 +1,28 @@
+name: 'AWS S3 Create Bucket'
+description: 'Create a new bucket in AWS S3 on demand'
+author: 'Andrés Ignacio Torres'
+inputs:
+  bucket-name:
+    description: 'Name of the bucket that will be created (make sure it is unique)'
+    required: true
+  aws-access-key-id:
+    description: 'AWS Access Key ID'
+    required: true
+  aws-secret-access-key:
+    description: 'AWS Secret Access Key'
+    required: true
+  aws-region:
+    description: 'AWS Region (default: us-east-1)'
+    required: true
+    default: 'us-east-1'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.bucket-name}}
+    - ${{ inputs.aws-access-key-id }}
+    - ${{ inputs.aws-secret-access-key }}
+    - ${{ inputs.aws-region }}
+branding:
+  icon: 'plus-circle'
+  color: 'orange'
