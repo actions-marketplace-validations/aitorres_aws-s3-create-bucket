@@ -17,5 +17,10 @@ else
         --create-bucket-configuration LocationConstraint=$AWS_REGION \
         --acl $ACL
 
-    echo "Bucket \`${BUCKET_NAME}\` created successfully!"
+    if [ $? -eq 0 ]; then
+        echo "Bucket \`${BUCKET_NAME}\` created successfully!"
+    else
+        echo "There was a problem creating bucket \`${BUCKET_NAME}\`, please read the logs above this message."
+        exit 1
+    fi
 fi
