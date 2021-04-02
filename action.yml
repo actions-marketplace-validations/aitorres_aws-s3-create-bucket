@@ -15,6 +15,10 @@ inputs:
     description: 'AWS Region (default: us-east-1)'
     required: true
     default: 'us-east-1'
+  acl:
+    description: 'ACL to apply to the bucket during creation (default: private)'
+    required: true
+    default: 'private'
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -23,6 +27,7 @@ runs:
     - ${{ inputs.aws-access-key-id }}
     - ${{ inputs.aws-secret-access-key }}
     - ${{ inputs.aws-region }}
+    - ${{ inputs.acl }}
 branding:
   icon: 'plus-circle'
   color: 'orange'
